@@ -167,7 +167,9 @@ nav h1 a {
   background-color: #ccc;
   display: block;
   max-width: 100%;
-
+}
+#restaurants-list .restaurant-info {
+  padding: 0 0 20px 20px;
 }
 #restaurants-list li h1 {
   color: #f18200;
