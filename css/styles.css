@@ -201,11 +201,6 @@ nav h1 a {
   z-index: 1000;
 }
 
-.inside #maincontent {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 400px;
@@ -332,31 +327,9 @@ nav h1 a {
     padding-left: calc((100% - 1200px) / 2);
     width: 100%;
   }
-  .inside #map-container {
-    width: 50%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: auto;
-  }
-  #restaurant-container {
-    flex-direction: column;
-    width: 50%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  #restaurant-container .onethird,
-  #restaurant-container .twothirds {
-    width: calc(100% - 40px);
-    margin: 0;
-  }
-  #restaurant-container .twothirds {
-    max-width: 840px;
-  }
-  
+  #restaurant-container, 
   #reviews-container {
-    width: calc(50% - 30px);
+    max-width: 1200px;
+    margin: 0 auto;
   }
-
 }
