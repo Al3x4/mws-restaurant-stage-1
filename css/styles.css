@@ -117,7 +117,6 @@ nav h1 a {
 }
 .filter-options h2 {
   color: white;
-  display: inline;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
@@ -157,11 +156,7 @@ nav h1 a {
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
   margin: 10px;
-  min-height: 380px;
   text-align: left;
-  width: 100%;
-  align-self: center;
-
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -288,4 +283,20 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+
+@media screen and (min-width: 550px) {
+  #restaurants-list li {
+    width: calc(50% - 20px);
+  }
+  .filter-options select {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  #restaurants-list li {
+    width: calc(33.3% - 20px);
+  }
 }
