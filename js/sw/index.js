@@ -30,20 +30,23 @@ self.addEventListener('activate', function(event) {
 self.addEventListener('fetch', function(event) {
  
   event.respondWith(
-      
+      //if there is a match in the caches, respond witht he cached response
       caches.match(event.request)
         .then(function(response) {
           return response
         });
       
+      //if there isn't a match, clone the request, make the request and add the clone to cache
       let requestClone = event.request.clone();
       
-      fetch(requestClone)
+      fetch(event.request)
         .then(function(response) {
+
+          //clone the response, return the response and add the clone to cache
           let responseClone = response.clone();
           caches.open(staticCacheName)
             .then(function(cache) {
-              cache.put(event.request, responseClone);
+              cache.put(requestClone, responseClone);
               return event.response;
             })
         })
