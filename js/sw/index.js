@@ -1,8 +1,5 @@
 let staticCacheName = 'restaurant_reviews2';
 let filesToCache  = [
-        '../',
-        'js/main.js',
-        'css/main.css'
       ];
 
 self.addEventListener('install', function(event) {
@@ -28,30 +25,27 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
- 
+
+  console.log('Fetch event for ', event.request.url);
   event.respondWith(
       //if there is a match in the caches, respond witht he cached response
-      caches.match(event.request)
-        .then(function(response) {
-          return response
-        });
-      
-      //if there isn't a match, clone the request, make the request and add the clone to cache
-      let requestClone = event.request.clone();
-      
-      fetch(event.request)
-        .then(function(response) {
+      caches.match(event.request).then(function(response) {
+        if (response) {
+          console.log('Found ', event.request.url, ' in cache');
+          return response;
+        }
 
-          //clone the response, return the response and add the clone to cache
-          let responseClone = response.clone();
-          caches.open(staticCacheName)
-            .then(function(cache) {
-              cache.put(requestClone, responseClone);
-              return event.response;
-            })
-        })
-        .catch(function(err) {
-          console.log(err);
+        console.log('Network request for ', event.request.url);
+        return fetch(event.request).then(function(response) {
+          return caches.open(staticCacheName).then(function(cache) {
+              cache.put(event.request.url, response.clone());
+              return response;
+            });
         });
-
+      })
+    )
 });
+            
+
+
+
