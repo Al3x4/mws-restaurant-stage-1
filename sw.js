@@ -1,4 +1,4 @@
-let staticCacheName = 'restaurant_reviews2';
+let staticCacheName = 'restaurant_reviews3';
 let filesToCache  = [
       ];
 

@@ -202,16 +202,18 @@ nav h1 a {
   width: 100%;
   z-index: 1000;
 }
-
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 400px;
-
+  padding-top: 70px;
 }
 .inside #map {
   background-color: #ccc;
   height: 100%;
   width: 100%;
+}
+.inside #map .leaflet-top {
+  top: 50%;
 }
 .inside #footer {
   bottom: 0;
@@ -249,7 +251,7 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 10px 30px;
+  padding: 20px 10px 30px;
 }
 #reviews-container {
   padding: 30px 10px 80px;
@@ -321,7 +323,6 @@ nav h1 a {
     flex-direction: row;
     justify-content: space-between;
   }
-
   #restaurant-container .twothirds {
     width: calc(66.6% - 20px);
     margin-top: 30px;
