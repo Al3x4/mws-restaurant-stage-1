@@ -226,7 +226,7 @@ registerServiceWorker = function() {
   if (!navigator.serviceWorker) return;
   navigator.serviceWorker.register('/js/sw/index.js').then(function() {
     console.log('Registration worked!');
-  }).catch(function() {
-    console.log('Registration failed!');
+  }).catch(function(err) {
+    console.log('Registration failed!', err);
   });
 };
